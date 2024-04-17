@@ -1,0 +1,44 @@
+.html {
+    width: 750px;
+    height: 840px;
+    opacity: 0;
+    background-color: black;
+    color: greenyellow;
+    font-family: 'courier new', monospace;
+    font-size: 1.75rem;
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 64px;
+    height: 100%;
+    overflow-y: auto
+}
+
+.title {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.image {
+    margin: 32px 0;
+}
+
+.publication {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.publication a {
+    display: block;
+    padding: 16px;
+    border: 1px solid greenyellow;
+    color: greenyellow;
+    text-decoration: none;
+}
+
+.publication a:hover {
+    background-color: greenyellow;
+    color: black;
+}

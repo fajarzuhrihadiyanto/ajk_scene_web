@@ -1,0 +1,69 @@
+.html {
+    width: 445px;
+    height: 945px;
+    opacity: 0;
+    background-color: black;
+    color: greenyellow;
+    font-family: 'courier new', monospace;
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 32px;
+    height: 100%;
+    overflow-y: auto
+}
+
+.title, .subtitle {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    font-size: 2rem;
+}   
+
+.description {
+    font-size: 1.75rem;
+    text-align: justify;
+    line-height: 2;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 32px;
+    gap: 16px;
+}
+
+.list {
+    display: flex;
+    padding-left: 24px;
+    flex-direction: column;
+    gap: 8px
+}
+
+.list_item {
+    text-align: justify;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.button {
+    padding: 16px;
+    width: 100%;
+    margin-top: 16px;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid greenyellow;
+    color: greenyellow;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: greenyellow;
+    color: black;
+}

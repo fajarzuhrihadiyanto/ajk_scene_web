@@ -1,0 +1,15 @@
+.custom_scrollbar {
+    &::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border: 1px solid greenyellow;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: greenyellow;
+    }
+}

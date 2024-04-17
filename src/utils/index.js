@@ -1,0 +1,1 @@
+export const addVector3 = (vector1, vector2) => vector1.map((val, index) => val + vector2[index])

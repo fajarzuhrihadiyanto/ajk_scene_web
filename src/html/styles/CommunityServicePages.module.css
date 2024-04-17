@@ -1,0 +1,33 @@
+.html {
+    width: 445px;
+    height: 945px;
+    opacity: 0;
+    background-color: black;
+    color: greenyellow;
+    font-family: 'courier new', monospace;
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 32px;
+    height: 100%;
+    overflow-y: auto
+}
+
+.title {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.list {
+    display: flex;
+    padding-left: 24px;
+    flex-direction: column;
+    gap: 8px
+}
+
+.list_item {
+    text-align: justify;
+    font-size: 1.75rem;
+    line-height: 1.5;
+}

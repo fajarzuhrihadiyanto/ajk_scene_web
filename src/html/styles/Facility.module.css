@@ -1,0 +1,19 @@
+.html {
+    background-color: black;
+    color: greenyellow;
+    font-family: 'Courier New', monospace;
+    width: 195px;
+    height: 115px;
+    overflow: auto;
+}
+
+.container {
+    padding: 8px
+}
+
+.list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 6pt;
+    text-align: justify
+}
