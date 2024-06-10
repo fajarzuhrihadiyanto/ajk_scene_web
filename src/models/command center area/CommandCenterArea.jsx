@@ -9,6 +9,7 @@ import useMainStore from "../../store/useMainStore"
 import { FOCUS_LECTURER } from "../../constants"
 import Tooltip from "../../components/Tootlip"
 import { LECTURERS } from "../../data/lecturers"
+import { useResponsiveScreen } from "../../utils"
 
 const CommandCenterArea = ({ nodes, materials }) => {
 
@@ -17,6 +18,7 @@ const CommandCenterArea = ({ nodes, materials }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
+    const { isMobile } = useResponsiveScreen()
 
     // =====| SINGLE PANEL SCREEN AREA |=====
     // State wether the panel screen is hovered or not, and wether the panel screen is clicked or not
@@ -49,11 +51,12 @@ const CommandCenterArea = ({ nodes, materials }) => {
             setFocusTarget(FOCUS_LECTURER)
             const colIndex = id % 3
             const rowIndex = Math.floor(id / 3)
-            setCameraPosition([
-                0.307 - colIndex * 1,
-                rowIndex === 0 ? 2 : 1.5,
-                rowIndex === 0 ? 2.375 - .75 : 2.619 - .75
-            ])
+
+            let cameraPosition = [0.307 - colIndex * 1, rowIndex === 0 ? 2 : 1.5, rowIndex === 0 ? 2.375 - .75 : 2.619 - .75]
+            if (isMobile) {
+                cameraPosition = [0.307 - colIndex * 1, rowIndex === 0 ? 1.95 : 1.5, rowIndex === 0 ? 2.375 - 1 : 2.619 - 1.25]
+            }
+            setCameraPosition(cameraPosition)
             setControlsTargetOffset([0, rowIndex === 0 ? 0.005 : 0, 0.01])
 
             // reset hovered data center id

@@ -2,8 +2,8 @@
     background-color: black;
     color: greenyellow;
     font-family: 'Courier New', monospace;
-    width: 195px;
-    height: 115px;
+    width: 390px;
+    height: 230px;
     overflow: auto;
 }
 
@@ -11,9 +11,14 @@
     padding: 8px
 }
 
+.title {
+    font-size: 2rem;
+    margin: 0 12px 8px;
+}
+
 .list {
     margin: 0;
     padding-left: 18px;
-    font-size: 6pt;
+    font-size: 12pt;
     text-align: justify
 }

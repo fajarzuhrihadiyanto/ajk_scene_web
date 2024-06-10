@@ -11,7 +11,7 @@ const Monitor = ({ nodes, materials }) => {
                     <meshStandardMaterial color={'black'} />
                 </mesh>
             </group>
-            <FacilitiesPage position={[1.722, 1.01, 2.52]} rotation={[0, Math.PI, 0]} scale={[.1, .1, .1]}/>
+            <FacilitiesPage position={[1.722, 1.01, 2.52]} rotation={[0, Math.PI, 0]} scale={[.05, .05, .05]}/>
         </>
     )
 }

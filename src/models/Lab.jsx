@@ -65,6 +65,6 @@ const Lab = (props) => {
   )
 }
 
-useGLTF.preload('/models/lab scene.glb')
+useGLTF.preload(process.env.REACT_APP_MODEL_URL)
 
 export default Lab

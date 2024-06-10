@@ -10,6 +10,7 @@ import SubjectPages from "../../html/SubjectPages"
 import ResearchPages from "../../html/ResearchPages"
 import CommunityServicePages from "../../html/CommunityServicePages"
 import BookPages from "../../html/BookPages"
+import { useResponsiveScreen } from "../../utils"
 
 const DataCenterArea = ({ nodes, materials }) => {
     
@@ -18,33 +19,34 @@ const DataCenterArea = ({ nodes, materials }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
+    const {isMobile} = useResponsiveScreen()
 
     const data = [
         {
             title: 'Mata Kuliah',
             focusTarget: FOCUS_SUBJECT,
-            cameraPosition: [-2.2 + 0*1.101, 1.325, -2],
+            cameraPosition: [(isMobile ? -2.3:-2.2) + 0*1.101, 1.325, isMobile ? -1.925 : -2],
             controlsTargetOffset: [0.01, 0, 0],
             children: <SubjectPages scale={[.04, .04, .04]} rotation={[-Math.PI / 2,0, 0]} position={[0,0.001,-0.0]} />
         },
         {
             title: 'Penelitian',
             focusTarget: FOCUS_RESEARCH,
-            cameraPosition: [-2.2 + 1*1.101, 1.325, -2],
+            cameraPosition: [(isMobile ? -2.3:-2.2) + 1*1.101, 1.325, isMobile ? -1.925 : -2],
             controlsTargetOffset: [0.01, 0, 0],
             children: <ResearchPages scale={[.04, .04, .04]} rotation={[-Math.PI / 2,0, 0]} position={[0,0.001,0]} />
         },
         {
             title: 'Pengabdian Masyarakat',
             focusTarget: FOCUS_COMMUNITY_SERVICE,
-            cameraPosition: [-2.2 + 2*1.101, 1.325, -2],
+            cameraPosition: [(isMobile ? -2.3:-2.2) + 2*1.101, 1.325, isMobile ? -1.925 : -2],
             controlsTargetOffset: [0.01, 0, 0],
             children: <CommunityServicePages scale={[.04, .04, .04]} rotation={[-Math.PI / 2,0, 0]} position={[0,0.001,0]} />
         },
         {
             title: 'Buku',
             focusTarget: FOCUS_BOOKS,
-            cameraPosition: [-2.2 + 3*1.101, 1.325, -2],
+            cameraPosition: [(isMobile ? -2.3:-2.2) + 3*1.101, 1.325, isMobile ? -1.925 : -2],
             controlsTargetOffset: [0.01, 0, 0],
             children: <BookPages scale={[.04, .04, .04]} rotation={[-Math.PI / 2,0, 0]} position={[0,0.001,0]} />
         }

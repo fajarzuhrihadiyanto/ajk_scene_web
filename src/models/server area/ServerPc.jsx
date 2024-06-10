@@ -7,6 +7,7 @@ import useMainStore from "../../store/useMainStore"
 import { FOCUS_GENERAL_INFORMATION } from "../../constants"
 import Tooltip from "../../components/Tootlip"
 import GeneralInformation from "../../html/GeneralInformation"
+import { useResponsiveScreen } from "../../utils"
 
 const ServerPc = ({ nodes, materials }) => {
 
@@ -15,6 +16,7 @@ const ServerPc = ({ nodes, materials }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
+    const { isMobile } = useResponsiveScreen()
 
     // state wether the area is hovered or not
     const [isHovered, setIsHovered] = React.useState(false)
@@ -38,9 +40,11 @@ const ServerPc = ({ nodes, materials }) => {
     // server pc area click function
     const onClick = React.useCallback(() => {
         if (focusTarget === null) {
+            const cameraPosition = isMobile ? [-2.1, 1, 0] : [-2.55, 1.1, 0]
+
             setIsHovered(false)
             setFocusTarget(FOCUS_GENERAL_INFORMATION)
-            setCameraPosition([-2.55, 1.1, 0])
+            setCameraPosition(cameraPosition)
             setControlsTargetOffset([-.01, 0, 0])
         }
     }, [focusTarget])

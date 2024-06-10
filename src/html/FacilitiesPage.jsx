@@ -39,6 +39,7 @@ const FacilitiesPage = ({ ...props }) => {
                 }}
                 >
                 <div className={styles.container}>
+                    <h1 className={styles.title}>Fasilitas</h1>
                     <ul className={styles.list}>
                         <li>28 Unit Komputer i7 dengan ram minimal 16 GB.</li>
                         <li>1 Unit Server Praktikum, Dell Power Edge R650 CTO Intel® Xeon® Gold 6338 2G Memory 32GB RDIMM SSD 2.4TB.</li>

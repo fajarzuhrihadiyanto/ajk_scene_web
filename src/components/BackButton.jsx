@@ -1,6 +1,7 @@
 import React from "react"
 import useMainStore from "../store/useMainStore"
 import { FOCUS_BOOKS, FOCUS_COMMUNITY_SERVICE, FOCUS_FACILITIES, FOCUS_GENERAL_INFORMATION, FOCUS_LECTURER, FOCUS_RESEARCH, FOCUS_SUBJECT } from "../constants"
+import { useResponsiveScreen } from "../utils"
 
 const BackButton = () => {
     const focusTarget = useMainStore.useFocusTarget()
@@ -8,6 +9,7 @@ const BackButton = () => {
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
     const setSubjectData = useMainStore.useSetSubjectData()
+    const {isMobile} = useResponsiveScreen()
     
     const back = () => {
         let controlsTargetOffset = [-.01,0,0]
@@ -65,8 +67,9 @@ const BackButton = () => {
             style={{
                 // position to top right
                 position: 'absolute',
-                top: 48,
-                right: 48,
+                top: isMobile? 24:48,
+                right: isMobile? 24:48,
+                zIndex: 167679330,
 
                 // style
                 padding: '16px 32px',
