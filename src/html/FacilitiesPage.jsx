@@ -4,11 +4,13 @@ import { Html } from "@react-three/drei"
 import styles from './styles/Facility.module.css'
 import useMainStore from "../store/useMainStore"
 import { FOCUS_FACILITIES } from "../constants"
+import useDataStore from "../store/dataStore"
 
 const FacilitiesPage = ({ ...props }) => {
 
     // Get state and setter from the store
     const focusTarget = useMainStore.useFocusTarget()
+    const facilities = useDataStore.useFacilities()
 
     // setting ref for the screen
     const screenRef = React.useRef()
@@ -41,11 +43,7 @@ const FacilitiesPage = ({ ...props }) => {
                 <div className={styles.container}>
                     <h1 className={styles.title}>Fasilitas</h1>
                     <ul className={styles.list}>
-                        <li>28 Unit Komputer i7 dengan ram minimal 16 GB.</li>
-                        <li>1 Unit Server Praktikum, Dell Power Edge R650 CTO Intel® Xeon® Gold 6338 2G Memory 32GB RDIMM SSD 2.4TB.</li>
-                        <li>1 Unit Server GPU Prosesor i9.</li>
-                        <li>Memiliki Ruang Rapat / Ruang Sidang dan Smart TV.</li>
-                        <li>Dilengkapi dengan Audio System.</li>
+                        {facilities.map((facility, index) => <li key={index}>{facility.name}</li>)}
                     </ul>
                 </div>
             </Html>

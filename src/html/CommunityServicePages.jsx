@@ -5,12 +5,13 @@ import { FOCUS_COMMUNITY_SERVICE, FOCUS_RESEARCH, FOCUS_SUBJECT } from "../const
 
 import styles from './styles/ResearchPages.module.css'
 import scrollbarStyles from './styles/Scrollbar.module.css'
-import { COMMUNITY_SERVICE } from "../data/communityService"
+import useDataStore from "../store/dataStore"
 
 const CommunityServicePages = ({ ...props }) => {
 
     // Get state and setter from the store
     const focusTarget = useMainStore.useFocusTarget()
+    const communityServices = useDataStore.useCommunityServices()
 
     // setting ref for the screen
     const screenRef = React.useRef()
@@ -42,8 +43,8 @@ const CommunityServicePages = ({ ...props }) => {
                         
                         <h1 className={styles.title}>Daftar Pengabdian Masyarakat</h1>
                         <ul className={styles.list}>
-                            {COMMUNITY_SERVICE.map((data, index) => (
-                                <li key={index} className={styles.list_item}>{data.year} - {data.title}</li>
+                            {communityServices.map((communityService, index) => (
+                                <li key={index} className={styles.list_item}>{communityService.year} - {communityServices.community_service_type} {communityService.title} {communityService.professor_fullname && `, ${communityService.professor_fullname}`}</li>
                             ))}
                         </ul>
                     </div>

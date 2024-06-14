@@ -4,7 +4,7 @@ import React from "react"
 import { FOCUS_SUBJECT, FOCUS_SUBJECT_DETAIL } from "../constants"
 
 import styles from './styles/SubjectPages.module.css'
-import { SUBJECT } from "../data/subject"
+import useDataStore from "../store/dataStore"
 
 const SubjectPages = ({ ...props }) => {
 
@@ -13,13 +13,14 @@ const SubjectPages = ({ ...props }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const subjectData = useMainStore.useSubjectData()
     const setSubjectData = useMainStore.useSetSubjectData()
+    const subjects = useDataStore.useSubjects()
 
     // setting ref for the screen
     const screenRef = React.useRef()
 
     const onClick = (id) => {
         setFocusTarget(FOCUS_SUBJECT_DETAIL)
-        setSubjectData(SUBJECT[id])
+        setSubjectData(subjects[id])
     }
 
     React.useEffect(() => {
@@ -49,13 +50,13 @@ const SubjectPages = ({ ...props }) => {
                         
                         <h1 className={styles.title}>Daftar Mata Kuliah</h1>
                         <div className={styles.listContainer}>
-                            {SUBJECT.map((subject, index) => (
+                            {subjects.map((subject, index) => (
                                 <button
                                     className={styles.button}
                                     key={index}
                                     onClick={() => {onClick(index)}}
                                     >
-                                        {subject.title}
+                                        {subject.name}
                                 </button>
                             ))}
                         </div>

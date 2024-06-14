@@ -8,8 +8,8 @@ import CommandCenterPanelScreen, { CommandCenterPanelScreenDummy } from "./Comma
 import useMainStore from "../../store/useMainStore"
 import { FOCUS_LECTURER } from "../../constants"
 import Tooltip from "../../components/Tootlip"
-import { LECTURERS } from "../../data/lecturers"
 import { useResponsiveScreen } from "../../utils"
+import useDataStore from "../../store/dataStore"
 
 const CommandCenterArea = ({ nodes, materials }) => {
 
@@ -18,6 +18,7 @@ const CommandCenterArea = ({ nodes, materials }) => {
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const setCameraPosition = useMainStore.useSetCameraPosition()
     const setControlsTargetOffset = useMainStore.useSetControlsTargetOffset()
+    const professors = useDataStore.useProfessors()
     const { isMobile } = useResponsiveScreen()
 
     // =====| SINGLE PANEL SCREEN AREA |=====
@@ -76,7 +77,7 @@ const CommandCenterArea = ({ nodes, materials }) => {
     
     return (
         <>
-            {LECTURERS.map((lecturer, i) => {
+            {professors.map((lecturer, i) => {
                 const colIndex = i % 3
                 const rowIndex = Math.floor(i / 3)
 
@@ -114,17 +115,17 @@ const CommandCenterArea = ({ nodes, materials }) => {
                                 textAlign: 'center'
                             }}
                         >
-                            {lecturer.name}
+                            {lecturer.fullname}
                         </p>
                     </Tooltip>
                     </>
                 )
             })}
 
-            {Array(6 - LECTURERS.length).fill().map((_, i) => {
+            {Array(6 - professors.length).fill().map((_, i) => {
 
-                const colIndex = (i + LECTURERS.length) % 3
-                const rowIndex = Math.floor((i + LECTURERS.length) / 3)
+                const colIndex = (i + professors.length) % 3
+                const rowIndex = Math.floor((i + professors.length) / 3)
 
                 return (
                     <CommandCenterPanelScreenDummy

@@ -12,7 +12,6 @@ const SubjectDetailPages = ({ data, ...props }) => {
     const focusTarget = useMainStore.useFocusTarget()
     const setFocusTarget = useMainStore.useSetFocusTarget()
     const subjectData = useMainStore.useSubjectData()
-    const setSubjectData = useMainStore.useSetSubjectData()
 
     // setting ref for the screen
     const screenRef = React.useRef()
@@ -54,8 +53,8 @@ const SubjectDetailPages = ({ data, ...props }) => {
                 }}>
                     <div className={`${styles.container} ${scrollbarStyles.custom_scrollbar}`} ref={divRef}>
                         
-                        <h1 className={styles.title}>{subjectData?.title}</h1>
-                        <p className={styles.description}>Mata kuliah {subjectData?.mandatory ? 'wajib' : 'pilihan'}</p>
+                        <h1 className={styles.title}>{subjectData?.name}</h1>
+                        <p className={styles.description}>Mata kuliah {subjectData?.is_compulsory ? 'wajib' : 'pilihan'}</p>
                         <div>
                             <h3 className={styles.subtitle}>Deskripsi Mata kuliah</h3>
                             <p className={styles.description}>{subjectData?.description}</p>

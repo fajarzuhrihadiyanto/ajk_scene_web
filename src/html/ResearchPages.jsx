@@ -5,12 +5,13 @@ import { FOCUS_RESEARCH, FOCUS_SUBJECT } from "../constants"
 
 import styles from './styles/ResearchPages.module.css'
 import scrollbarStyles from './styles/Scrollbar.module.css'
-import { RESEARCH } from "../data/research"
+import useDataStore from "../store/dataStore"
 
 const ResearchPages = ({ ...props }) => {
 
     // Get state and setter from the store
     const focusTarget = useMainStore.useFocusTarget()
+    const research = useDataStore.useResearch()
 
     // setting ref for the screen
     const screenRef = React.useRef()
@@ -42,8 +43,8 @@ const ResearchPages = ({ ...props }) => {
                         
                         <h1 className={styles.title}>Daftar Penelitian</h1>
                         <ul className={styles.list}>
-                            {RESEARCH.map((research, index) => (
-                                <li key={index} className={styles.list_item}>{research.year} - {research.title}</li>
+                            {research.map((research, index) => (
+                                <li key={index} className={styles.list_item}>{research.year} - {research.research_type} {research.title} {research.professor_fullname && `, ${research.professor_fullname}`}</li>
                             ))}
                         </ul>
                     </div>

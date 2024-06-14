@@ -5,7 +5,7 @@ import Picture from "../../html/Picture"
 const CommandCenterPanelScreen = ({ nodes, materials, lecturer, shown, ...props }) => {
 
     // load the picture texture
-    const colorMap = useLoader(TextureLoader, lecturer.pictureUrl)
+    const colorMap = useLoader(TextureLoader, lecturer.photo_url)
     colorMap.flipY = false
 
     return (

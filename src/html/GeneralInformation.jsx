@@ -4,11 +4,13 @@ import { Html } from "@react-three/drei"
 import styles from './styles/GeneralInformation.module.css'
 import useMainStore from "../store/useMainStore"
 import { FOCUS_GENERAL_INFORMATION } from "../constants"
+import useDataStore from "../store/dataStore"
 
 const GeneralInformation = ({ ...props }) => {
 
     // Get state and setter from the store
     const focusTarget = useMainStore.useFocusTarget()
+    const labDescription = useDataStore.useLabDescription()
 
     // setting ref for the screen
     const screenRef = React.useRef()
@@ -39,7 +41,7 @@ const GeneralInformation = ({ ...props }) => {
                     className={styles.container}
                 >
                     <h1 className={styles.title}>Selamat Datang di halaman Laboratorium Teknologi Jaringan dan Keamanan Siber Cerdas.</h1>
-                    <p className={styles.description}>Laboratorium di bidang minat ini menawarkan bidang keahlian yang ditekankan pada Kemampuan lulusan dalam membangun berbagai macam arsitektur jaringan sesuai standar teknologi terkini dan menerapkan keamanan jaringan.</p>
+                    <p className={styles.description}>{labDescription}</p>
                 </div>
             </Html>
         </group>

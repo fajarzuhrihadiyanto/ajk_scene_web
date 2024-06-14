@@ -7,6 +7,7 @@ import ControlContainer from "./context/ControlsContext";
 import BackButton from "./components/BackButton";
 import { Suspense } from "react";
 import Loader from "./models/Loader";
+import DataDownloader from "./components/DataDownloader";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       {/* IMPORTANT : DO NOT SET FRAMELOOP TO DEMAND, SOMETIME IT WILL STOP THE ANIMATION RENDERING */}
       <Canvas camera={{position: cameraPosition}}>
         <Suspense fallback={<Loader />}>
+          <DataDownloader />
           <ambientLight intensity={2} />
           <ControlContainer target={controlsTarget}>
             <Selection >

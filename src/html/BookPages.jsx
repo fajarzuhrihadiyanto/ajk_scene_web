@@ -5,12 +5,13 @@ import { FOCUS_BOOKS } from "../constants"
 
 import styles from './styles/BookPages.module.css'
 import scrollbarStyles from './styles/Scrollbar.module.css'
-import { BOOKS } from "../data/books"
+import useDataStore from "../store/dataStore"
 
 const BookPages = ({ ...props }) => {
 
     // Get state and setter from the store
     const focusTarget = useMainStore.useFocusTarget()
+    const books = useDataStore.useBooks()
 
     // setting ref for the screen
     const screenRef = React.useRef()
@@ -42,8 +43,8 @@ const BookPages = ({ ...props }) => {
                         
                         <h1 className={styles.title}>Daftar Buku</h1>
                         <ul className={styles.list}>
-                            {BOOKS.map((data, index) => (
-                                <li key={index} className={styles.list_item}>{data.year} - {data.title}</li>
+                            {books.map((book, index) => (
+                                <li key={index} className={styles.list_item}>{book.release_year} - {book.title}{book.professor_fullname && `, ${book.professor_fullname}`}</li>
                             ))}
                         </ul>
                     </div>
